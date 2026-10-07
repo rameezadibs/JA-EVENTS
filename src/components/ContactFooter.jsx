@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 
 const eventTypes = [
   "A Competition",
@@ -10,28 +10,11 @@ const eventTypes = [
 
 export default function ContactFooter() {
   const [selectedType, setSelectedType] = useState("");
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: "", contact: "", idea: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  // Focus state underlines
-  const [focusedField, setFocusedField] = useState(null);
 
   // Background radial glow strength on scroll
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end end"] });
   const radialGlowOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 0.45]);
-
-  // Form submission handler
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.contact) return;
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setFormSubmitted(true);
-    }, 1500);
-  };
 
   // Custom cursor logic for desktop
   const cursorX = useMotionValue(-100);
@@ -105,7 +88,7 @@ export default function ContactFooter() {
         </div>
 
         {/* Playful Floating Options */}
-        <div className="flex flex-col items-center mb-32">
+        <div className="flex flex-col items-center mb-16">
           <div className="text-[10px] font-bold tracking-[0.25em] text-ja-charcoal/40 uppercase mb-12">WHAT ARE WE CREATING?</div>
           
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-6 max-w-[900px] text-center">
@@ -131,162 +114,16 @@ export default function ContactFooter() {
           </div>
         </div>
 
-        {/* Conversational Contact Form */}
-        <div className="max-w-[800px] mx-auto bg-white/40 backdrop-blur-xl p-8 lg:p-16 rounded-[40px] shadow-[0_30px_80px_rgba(118,83,173,0.04)] border border-ja-lavender/30 mb-32">
-           <div className="mb-12">
-              <h3 className="text-3xl lg:text-[44px] font-serif text-ja-charcoal leading-tight mb-4">
-                Tell us a little<br/>about your idea.
-              </h3>
-              <p className="text-ja-charcoal/60 text-base leading-relaxed">
-                It doesn't need to be fully figured out. That's where we come in.
-              </p>
-           </div>
-
-           <AnimatePresence mode="wait">
-             {!formSubmitted ? (
-               <motion.form 
-                 key="contact-form"
-                 onSubmit={handleSubmit}
-                 className="flex flex-col gap-10"
-                 exit={{ opacity: 0, y: -20 }}
-               >
-                 {/* Field Name */}
-                 <div className="flex flex-col gap-2">
-                   <label className="text-[10px] font-bold tracking-[0.2em] text-ja-charcoal/40 uppercase">Hello, my name is</label>
-                   <div className="relative">
-                      <input 
-                        type="text" 
-                        required
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Your name" 
-                        onFocus={() => setFocusedField('name')}
-                        onBlur={() => setFocusedField(null)}
-                        className="w-full bg-transparent border-none text-2xl lg:text-3xl text-ja-charcoal font-serif placeholder-ja-charcoal/20 focus:outline-none pb-2"
-                      />
-                      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-ja-lavender" />
-                      <motion.div 
-                        animate={{ scaleX: focusedField === 'name' ? 1 : 0 }} 
-                        className="absolute bottom-0 left-0 w-full h-[2px] bg-ja-purple origin-left" 
-                      />
-                   </div>
-                 </div>
-
-                 {/* Field Contact */}
-                 <div className="flex flex-col gap-2">
-                   <label className="text-[10px] font-bold tracking-[0.2em] text-ja-charcoal/40 uppercase">You can reach me at</label>
-                   <div className="relative">
-                      <input 
-                        type="text" 
-                        required
-                        value={formData.contact}
-                        onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-                        placeholder="Phone / WhatsApp number" 
-                        onFocus={() => setFocusedField('contact')}
-                        onBlur={() => setFocusedField(null)}
-                        className="w-full bg-transparent border-none text-2xl lg:text-3xl text-ja-charcoal font-serif placeholder-ja-charcoal/20 focus:outline-none pb-2"
-                      />
-                      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-ja-lavender" />
-                      <motion.div 
-                        animate={{ scaleX: focusedField === 'contact' ? 1 : 0 }} 
-                        className="absolute bottom-0 left-0 w-full h-[2px] bg-ja-purple origin-left" 
-                      />
-                   </div>
-                 </div>
-
-                 {/* Field Type selection linkage */}
-                 <div className="flex flex-col gap-2">
-                   <label className="text-[10px] font-bold tracking-[0.2em] text-ja-charcoal/40 uppercase">I'm interested in</label>
-                   <div className="relative">
-                      <input 
-                        type="text"
-                        value={selectedType}
-                        onChange={(e) => setSelectedType(e.target.value)}
-                        placeholder="Select event type above or type here" 
-                        onFocus={() => setFocusedField('type')}
-                        onBlur={() => setFocusedField(null)}
-                        className="w-full bg-transparent border-none text-2xl lg:text-3xl text-ja-charcoal font-serif placeholder-ja-charcoal/20 focus:outline-none pb-2"
-                      />
-                      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-ja-lavender" />
-                      <motion.div 
-                        animate={{ scaleX: focusedField === 'type' ? 1 : 0 }} 
-                        className="absolute bottom-0 left-0 w-full h-[2px] bg-ja-purple origin-left" 
-                      />
-                   </div>
-                 </div>
-
-                 {/* Field Idea */}
-                 <div className="flex flex-col gap-2">
-                   <label className="text-[10px] font-bold tracking-[0.2em] text-ja-charcoal/40 uppercase">I'm thinking about</label>
-                   <div className="relative">
-                      <textarea 
-                        value={formData.idea}
-                        onChange={(e) => setFormData({ ...formData, idea: e.target.value })}
-                        placeholder="Tell us what you're imagining..." 
-                        onFocus={() => setFocusedField('idea')}
-                        onBlur={() => setFocusedField(null)}
-                        className="w-full bg-transparent border-none text-xl lg:text-2xl text-ja-charcoal font-serif placeholder-ja-charcoal/20 focus:outline-none pb-2 min-h-[100px] resize-none"
-                      />
-                      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-ja-lavender" />
-                      <motion.div 
-                        animate={{ scaleX: focusedField === 'idea' ? 1 : 0 }} 
-                        className="absolute bottom-0 left-0 w-full h-[2px] bg-ja-purple origin-left" 
-                      />
-                   </div>
-                 </div>
-
-                 {/* Submit */}
-                 <div className="mt-8 flex justify-start">
-                    <motion.button
-                      type="submit"
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="px-8 py-4 bg-ja-purple text-white text-xs font-bold tracking-[0.25em] uppercase rounded-full shadow-lg shadow-ja-purple/20 hover:shadow-ja-purple/30 transition-shadow flex items-center gap-3 relative group"
-                    >
-                      {isSubmitting ? (
-                        <span>SENDING...</span>
-                      ) : (
-                        <>
-                          <span>LET'S CREATE THIS</span>
-                          <span className="group-hover:translate-x-1 transition-transform">→</span>
-                        </>
-                      )}
-                    </motion.button>
-                 </div>
-               </motion.form>
-             ) : (
-               <motion.div 
-                 key="success-state"
-                 initial={{ opacity: 0, scale: 0.96 }}
-                 animate={{ opacity: 1, scale: 1 }}
-                 className="text-center py-12 flex flex-col items-center"
-               >
-                  <h4 className="text-3xl lg:text-4xl font-serif text-ja-charcoal mb-4">
-                     And just like that,<br/>
-                     <span className="italic text-ja-purple">the first idea is in motion.</span>
-                  </h4>
-                  <p className="text-ja-charcoal/60 text-base mb-12 max-w-[400px]">
-                     Thank you. The JA Events team will be in touch soon.
-                  </p>
-                  <div className="text-[10px] font-bold tracking-[0.3em] text-ja-purple bg-ja-lavender/30 px-5 py-2 rounded-full border border-ja-purple/10">
-                     ✦ IDEA RECEIVED
-                  </div>
-               </motion.div>
-             )}
-           </AnimatePresence>
-        </div>
-
-        {/* Alternative Contact option */}
+        {/* Direct Contact Option */}
         <div className="text-center flex flex-col items-center">
            <div className="text-[9px] font-bold tracking-[0.3em] text-ja-charcoal/40 uppercase mb-3">PREFER TO TALK DIRECTLY?</div>
            <a 
-             href="https://wa.me/971528394207" 
+             href={`https://wa.me/971528394207${selectedType ? `?text=Hi%20JA%20Events!%20I'm%20interested%20in%20planning%20${encodeURIComponent(selectedType)}.` : ''}`} 
              target="_blank"
              rel="noopener noreferrer"
-             className="text-sm font-bold tracking-[0.25em] text-ja-purple hover:text-[#25D366] uppercase relative group inline-flex items-center gap-2 transition-colors"
+             className="text-sm sm:text-base font-bold tracking-[0.25em] text-ja-purple hover:text-[#25D366] uppercase relative group inline-flex items-center gap-2 transition-colors px-8 py-4 rounded-full bg-ja-purple/10 border border-ja-purple/20 hover:bg-[#25D366]/10 hover:border-[#25D366]/30 shadow-md"
            >
               CHAT ON WHATSAPP ↗
-              <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-ja-purple scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
            </a>
         </div>
 
@@ -314,50 +151,43 @@ export default function ContactFooter() {
             </div>
 
             {/* Middle Nav and Info Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 border-t border-white/10 pt-16 mb-24">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
                
-               {/* Nav Links */}
-               <div className="flex flex-col gap-6">
-                  <div className="text-[10px] font-bold tracking-[0.2em] text-white/40 uppercase mb-2">NAVIGATION</div>
-                  <ul className="flex flex-col gap-4">
-                     {['HOME', 'ABOUT', 'EXPERIENCES', 'GALLERY', 'CONTACT'].map((link) => (
-                        <li key={link}>
-                           <a 
-                             href={`#${link.toLowerCase()}`}
-                             className="text-sm font-semibold tracking-[0.15em] text-white/80 hover:text-white transition-colors relative group flex items-center gap-2"
-                           >
-                             <span className="opacity-0 group-hover:opacity-100 transition-opacity absolute -left-5">✦</span>
-                             {link}
-                           </a>
-                        </li>
-                     ))}
+               <div>
+                  <div className="text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase mb-6">EXPLORE</div>
+                  <ul className="space-y-4">
+                     <li><a href="#home" className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">HOME</a></li>
+                     <li><a href="#upcoming" className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">UPCOMING</a></li>
+                     <li><a href="#about" className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">ABOUT</a></li>
+                     <li><a href="#experiences" className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">EXPERIENCES</a></li>
+                     <li><a href="#videos" className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">VIDEOS</a></li>
+                     <li><a href="#gallery" className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">GALLERY</a></li>
+                     <li><a href="#voices" className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">VOICES</a></li>
                   </ul>
                </div>
 
-               {/* Contact details */}
-               <div className="flex flex-col gap-6">
-                  <div className="text-[10px] font-bold tracking-[0.2em] text-white/40 uppercase mb-2">LET'S TALK</div>
-                  <ul className="flex flex-col gap-4">
+               <div>
+                  <div className="text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase mb-6">GET IN TOUCH</div>
+                  <ul className="space-y-4 text-sm font-semibold tracking-wider text-white/80">
                      <li>
-                        <a 
-                          href="https://wa.me/971528394207" 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="text-sm font-semibold tracking-[0.1em] text-white/80 hover:text-[#25D366] transition-colors flex items-center gap-2"
-                        >
-                           <span>WhatsApp: +971 52 839 4207</span>
+                        <a href="https://wa.me/971528394207" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                           +971 52 839 4207
                         </a>
                      </li>
-                     <li className="text-sm text-white/60 font-semibold tracking-[0.1em]">
-                        Based in Dubai, UAE
+                     <li>
+                        <a href="mailto:jaevents2022@gmail.com" className="hover:text-white transition-colors">
+                           jaevents2022@gmail.com
+                        </a>
+                     </li>
+                     <li className="text-white/40 font-normal">
+                        DUBAI, UNITED ARAB EMIRATES
                      </li>
                   </ul>
                </div>
 
-               {/* Social accounts */}
-               <div className="flex flex-col gap-6">
-                  <div className="text-[10px] font-bold tracking-[0.2em] text-white/40 uppercase mb-2">FOLLOW THE MOMENTS</div>
-                  <ul className="flex flex-col gap-4">
+               <div>
+                  <div className="text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase mb-6">FOLLOW US</div>
+                  <ul className="space-y-4">
                      <li>
                         <a href="https://www.instagram.com/eventswithja" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold tracking-[0.15em] text-white/80 hover:text-white transition-colors group flex items-center gap-2">
                            INSTAGRAM ↗
