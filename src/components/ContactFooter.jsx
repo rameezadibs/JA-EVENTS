@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
-import Sparkle from './Sparkle';
 
 const eventTypes = [
   "A Competition",
@@ -84,9 +83,6 @@ export default function ContactFooter() {
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
         />
-        <div className="absolute bottom-0">
-          <Sparkle size={16} className="text-ja-purple translate-y-1/2 animate-pulse" absolute={false} />
-        </div>
       </div>
 
       {/* Radial Background Glow */}
@@ -100,16 +96,13 @@ export default function ContactFooter() {
         {/* Headline */}
         <div className="text-center flex flex-col items-center max-w-[1200px] mx-auto mb-16 sm:mb-24">
           <div className="text-[10px] font-bold tracking-[0.3em] uppercase text-ja-purple mb-8 flex items-center gap-2">
-            LET'S CREATE TOGETHER <Sparkle size={10} absolute={false} className="text-ja-purple" />
+            LET'S CREATE TOGETHER
           </div>
 
           <h2 className="text-[clamp(32px,8vw,145px)] font-sans font-semibold leading-[0.95] tracking-tighter text-ja-charcoal">
             <motion.span initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="block">Have an idea?</motion.span>
             <motion.span initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="block font-serif italic text-ja-purple font-normal mt-2">
               Let's make it happen.
-              <motion.span initial={{ scale: 0 }} whileInView={{ scale: 1 }} transition={{ delay: 0.5 }} className="inline-block ml-4 align-middle">
-                 <Sparkle size={24} className="text-ja-purple" absolute={false} />
-              </motion.span>
             </motion.span>
           </h2>
         </div>
@@ -261,7 +254,6 @@ export default function ContactFooter() {
                           <span className="group-hover:translate-x-1 transition-transform">→</span>
                         </>
                       )}
-                      <Sparkle size={10} className="absolute -top-1 -right-1 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
                     </motion.button>
                  </div>
                </motion.form>
@@ -272,7 +264,6 @@ export default function ContactFooter() {
                  animate={{ opacity: 1, scale: 1 }}
                  className="text-center py-12 flex flex-col items-center"
                >
-                  <Sparkle size={48} className="text-ja-purple mb-8 animate-[spin_10s_linear_infinite]" />
                   <h4 className="text-3xl lg:text-4xl font-serif text-ja-charcoal mb-4">
                      And just like that,<br/>
                      <span className="italic text-ja-purple">the first idea is in motion.</span>
@@ -313,12 +304,6 @@ export default function ContactFooter() {
 
       {/* FOOTER SECTION */}
       <footer className="relative bg-[#24152F] text-white pt-10 pb-12 z-10">
-         
-         {/* Huge Watermark Sparkle */}
-         <div className="absolute right-[-10%] bottom-0 w-[50vw] h-[50vw] max-w-[600px] opacity-[0.08] text-white pointer-events-none select-none">
-            <Sparkle size={500} absolute={false} />
-         </div>
-
          <div className="container mx-auto px-6 lg:px-12 relative z-10">
             
             {/* Huge statement */}
@@ -391,6 +376,11 @@ export default function ContactFooter() {
                            LINKEDIN ↗
                         </a>
                      </li>
+                     <li>
+                        <a href="https://www.youtube.com/@eventswithja" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold tracking-[0.15em] text-white/80 hover:text-white transition-colors group flex items-center gap-2">
+                           YOUTUBE ↗
+                        </a>
+                     </li>
                   </ul>
                </div>
 
@@ -406,20 +396,6 @@ export default function ContactFooter() {
                   <h3 className="text-[120px] lg:text-[220px] font-serif text-white/10 font-bold leading-none tracking-tight">
                      JA
                   </h3>
-                  
-                  {/* Subtle hover easter egg sparkles */}
-                  <AnimatePresence>
-                     {hoveredLogo && (
-                       <>
-                          <motion.div initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 0.6 }} exit={{ scale: 0 }} className="absolute -top-4 -left-4">
-                             <Sparkle size={16} className="text-ja-purple" />
-                          </motion.div>
-                          <motion.div initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 0.5 }} exit={{ scale: 0 }} transition={{ delay: 0.1 }} className="absolute -bottom-2 -right-4">
-                             <Sparkle size={12} className="text-white" />
-                          </motion.div>
-                       </>
-                     )}
-                  </AnimatePresence>
                </motion.div>
             </div>
 

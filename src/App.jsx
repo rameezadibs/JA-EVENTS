@@ -7,6 +7,7 @@ import About from './components/About';
 import Experiences from './components/Experiences';
 import Manifesto from './components/Manifesto';
 import Gallery from './components/Gallery';
+import VideoHighlights from './components/VideoHighlights';
 import Voices from './components/Voices';
 import ContactFooter from './components/ContactFooter';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -45,6 +46,7 @@ function App() {
       <About />
       <Experiences />
       <Manifesto />
+      <VideoHighlights />
       <Gallery />
       <Voices />
       <ContactFooter />

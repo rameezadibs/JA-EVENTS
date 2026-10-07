@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Sparkle from './Sparkle';
 
 export default function AngelJoeIntro() {
   const containerRef = useRef(null);
@@ -100,7 +99,6 @@ export default function AngelJoeIntro() {
                  transition={{ delay: 0.4, duration: 0.8 }}
                  whileHover={{ y: -5 }}
               >
-                 <Sparkle className="text-ja-purple mb-4" size={18} delay={0.8} />
                  <p className="font-serif text-ja-charcoal text-[18px] lg:text-[21px] leading-[1.35] italic">
                    “I want people to leave with more than a memory.”
                  </p>
@@ -121,7 +119,6 @@ export default function AngelJoeIntro() {
           >
             <motion.div variants={revealVariants} className="flex items-center gap-3 mb-6">
               <span className="text-xs font-bold tracking-[0.25em] text-ja-purple uppercase">THE HEART BEHIND JA</span>
-              <Sparkle className="text-ja-purple relative" size={10} delay={0.2} />
             </motion.div>
             
             <motion.h2 variants={revealVariants} className="font-serif text-[clamp(56px,8vw,100px)] leading-[0.9] text-ja-charcoal mb-4 relative">
