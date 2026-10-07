@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Sparkle from './Sparkle';
 
 const testimonials = [
   {
@@ -245,7 +244,6 @@ export default function Voices() {
             </h4>
           </div>
           <div className="flex items-center gap-3">
-            <Sparkle size={14} className="text-ja-purple" />
             <span className="text-[10px] font-bold tracking-[0.35em] text-white/32 uppercase">JA Events</span>
           </div>
         </div>

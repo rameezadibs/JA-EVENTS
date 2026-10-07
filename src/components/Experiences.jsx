@@ -1,6 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useMotionValueEvent, useMotionValue, useSpring } from 'framer-motion';
-import Sparkle from './Sparkle';
 
 const experiences = [
   {
@@ -270,7 +269,6 @@ export default function Experiences() {
               <span className="text-xs font-bold tracking-[0.25em] text-white/80 uppercase">
                 Our Experiences
               </span>
-              <Sparkle size={14} delay={0.4} absolute={false} className="text-ja-purple" />
             </motion.div>
             
             <motion.h2 
@@ -351,7 +349,6 @@ export default function Experiences() {
           {/* Section End Bridge Statement pinned directly inside sticky frame */}
           <div className="container mx-auto px-6 lg:px-12 text-center pt-2">
             <div className="flex flex-col items-center justify-center pt-3 border-t border-white/10">
-              <Sparkle size={18} className="mb-2 text-ja-purple" />
               <h3 className="text-xl lg:text-3xl font-serif text-white/90 leading-tight">
                 Every experience starts differently.<br/>
                 <span className="italic text-ja-purple">Every experience ends with a memory.</span>
@@ -368,7 +365,6 @@ export default function Experiences() {
         ))}
         
         <div className="text-center pt-6 border-t border-white/10">
-          <Sparkle size={18} className="mb-2 text-ja-purple mx-auto" />
           <h3 className="text-xl font-serif text-white/90 leading-tight">
             Every experience starts differently.<br/>
             <span className="italic text-ja-purple">Every experience ends with a memory.</span>

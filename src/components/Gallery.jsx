@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 import { Play, Film, ExternalLink } from 'lucide-react';
-import Sparkle from './Sparkle';
 
 const galleryItems = [
   { id: 1, type: 'photo', src: 'https://res.cloudinary.com/knenwmhg/image/upload/f_auto,q_auto/Gemini_Generated_Image_kshlcrkshlcrkshl', category: 'WORKSHOP', alt: 'JA Events Workshop', note: 'THE START OF SOMETHING NEW' },
@@ -126,7 +125,6 @@ export default function Gallery() {
           <div className="max-w-[700px]">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-xs font-bold tracking-[0.25em] text-ja-purple uppercase">Our Gallery</span>
-              <Sparkle size={14} absolute={false} className="text-ja-purple" />
             </div>
             <h2 className="text-[clamp(36px,4.5vw,64px)] font-sans font-semibold text-ja-charcoal leading-[1.05] tracking-tight">
               A thousand little moments.<br/>

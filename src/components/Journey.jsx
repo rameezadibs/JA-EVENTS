@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Sparkle from './Sparkle';
 
 const stages = [
   {
@@ -62,7 +61,6 @@ function VisualSpark() {
           animate={{ boxShadow: ['0 0 0px rgba(118,83,173,0)', '0 0 60px rgba(118,83,173,0.28)', '0 0 0px rgba(118,83,173,0)'] }}
           transition={{ duration: 3, repeat: Infinity }}
         >
-          <Sparkle size={26} className="text-ja-purple" />
         </motion.div>
         {[1, 1.7, 2.4].map((scale, i) => (
           <motion.div
@@ -178,8 +176,6 @@ function VisualRemember() {
           {t}
         </motion.p>
       ))}
-      <Sparkle size={18} className="absolute top-[10%] right-[20%] text-ja-purple/60" />
-      <Sparkle size={12} className="absolute bottom-[15%] left-[18%] text-ja-purple/40" />
     </div>
   );
 }
@@ -325,7 +321,6 @@ export default function Journey() {
         </div>
         
         <div className="flex items-center gap-3 shrink-0">
-          <Sparkle size={14} className="text-ja-purple" />
           <span className="text-[10px] font-bold tracking-[0.35em] text-ja-charcoal/32 uppercase">JA Events</span>
         </div>
       </div>

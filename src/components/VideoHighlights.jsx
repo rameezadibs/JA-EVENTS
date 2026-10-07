@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Play, ExternalLink, Sparkles, CheckCircle2 } from 'lucide-react';
-import Sparkle from './Sparkle';
+import { Play, ExternalLink, CheckCircle2 } from 'lucide-react';
 
 const youtubeVideos = [
   {
@@ -96,7 +95,6 @@ export default function VideoHighlights() {
               <span className="text-xs font-bold tracking-[0.25em] text-ja-purple uppercase">
                 Moments in Motion
               </span>
-              <Sparkle size={14} absolute={false} className="text-ja-purple" />
             </div>
             <h2 className="text-[clamp(32px,4.5vw,58px)] font-sans font-semibold text-white leading-[1.08] tracking-tight">
               Watch Our Events{' '}
@@ -206,7 +204,6 @@ export default function VideoHighlights() {
               <div>
                 <div className="flex items-center justify-between gap-3 mb-2">
                   <span className="text-[10px] font-bold tracking-[0.25em] text-ja-purple uppercase flex items-center gap-1.5">
-                    <Sparkles className="w-3 h-3" />
                     {activeVideo.badge}
                   </span>
                   <span className="text-[11px] text-white/40 font-mono font-medium">

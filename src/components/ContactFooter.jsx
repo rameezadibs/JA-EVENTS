@@ -33,9 +33,6 @@ export default function ContactFooter() {
     }, 1500);
   };
 
-  // Easter Egg Sparkles state
-  const [hoveredLogo, setHoveredLogo] = useState(false);
-
   // Custom cursor logic for desktop
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -389,8 +386,6 @@ export default function ContactFooter() {
             {/* Giant Monogram Element */}
             <div className="flex justify-center mb-24 relative">
                <motion.div 
-                 onMouseEnter={() => setHoveredLogo(true)}
-                 onMouseLeave={() => setHoveredLogo(false)}
                  className="relative cursor-pointer select-none"
                >
                   <h3 className="text-[120px] lg:text-[220px] font-serif text-white/10 font-bold leading-none tracking-tight">

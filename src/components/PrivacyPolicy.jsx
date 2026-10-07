@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, Shield, Lock, FileText, CheckCircle2, Eye, Server, RefreshCw } from 'lucide-react';
-import Sparkle from './Sparkle';
+import { ArrowLeft, Shield, Lock, FileText, CheckCircle2, Eye, Server, RefreshCw, Camera } from 'lucide-react';
 
 export default function PrivacyPolicy({ onBack }) {
   return (
@@ -141,7 +140,7 @@ export default function PrivacyPolicy({ onBack }) {
           <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-2xl bg-ja-purple/30 border border-ja-purple/40 flex items-center justify-center text-ja-purple">
-                <Sparkle size={20} className="text-ja-purple" absolute={false} />
+                <Camera className="w-5 h-5 text-ja-purple" />
               </div>
               <h2 className="text-2xl font-serif text-white font-semibold">4. Media & Promotional Use</h2>
             </div>

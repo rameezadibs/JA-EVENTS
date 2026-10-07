@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
-import Sparkle from './Sparkle';
 
 const navLinks = [
   { title: 'Home', href: '#home' },
@@ -91,13 +90,9 @@ export default function Navbar() {
             animate={{ opacity: 1, clipPath: 'circle(150% at 100% 0)' }}
             exit={{ opacity: 0, clipPath: 'circle(0% at 100% 0)' }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 bg-ja-lavender/95 backdrop-blur-2xl flex flex-col justify-center px-8"
+            className="fixed inset-0 z-40 bg-ja-lavender/95 backdrop-blur-2xl flex flex-col justify-start pt-28 pb-10 px-8 overflow-y-auto"
           >
-            {/* Background Sparkles */}
-            <Sparkle className="top-1/4 left-10" size={32} delay={0.2} />
-            <Sparkle className="bottom-1/3 right-12" size={48} delay={0.4} />
-
-            <div className="flex flex-col gap-6 text-center">
+            <div className="flex flex-col gap-4 sm:gap-5 text-center my-auto py-4">
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.title}
@@ -105,8 +100,8 @@ export default function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + (i * 0.1), duration: 0.5 }}
-                  className="font-serif text-4xl text-ja-deep hover:text-ja-purple transition-colors"
+                  transition={{ delay: 0.08 + (i * 0.06), duration: 0.4 }}
+                  className="font-serif text-3xl sm:text-4xl text-ja-deep hover:text-ja-purple transition-colors"
                 >
                   {link.title}
                 </motion.a>
@@ -115,10 +110,10 @@ export default function Navbar() {
               <motion.a
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.5 }}
+                transition={{ delay: 0.5, duration: 0.4 }}
                 href="#contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-8 bg-ja-purple text-white px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center gap-2 mx-auto w-full max-w-xs"
+                className="mt-6 bg-ja-purple text-white px-8 py-3.5 rounded-full font-medium text-base sm:text-lg flex items-center justify-center gap-2 mx-auto w-full max-w-xs shadow-lg"
               >
                 Plan an Event <ArrowUpRight className="w-5 h-5" />
               </motion.a>

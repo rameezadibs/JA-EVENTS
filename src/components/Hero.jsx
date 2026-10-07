@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import Sparkle from './Sparkle';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -44,9 +43,6 @@ export default function Hero() {
           style={{ zIndex: 3 }}
         />
       </div>
-
-      <Sparkle className="top-[15%] left-[25%] text-ja-purple/35 z-10" size={30} delay={0} />
-      <Sparkle className="top-[35%] right-[15%] text-ja-purple/25 z-10" size={20} delay={1} />
 
       <motion.div 
         className="container mx-auto px-6 lg:px-12 relative z-10 w-full pt-32 lg:pt-40 pb-20 flex flex-col items-center text-center flex-grow justify-center"
