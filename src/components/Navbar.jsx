@@ -34,16 +34,27 @@ export default function Navbar() {
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a 
-                key={link.title} 
-                href={link.href}
-                className="text-sm font-medium text-ja-charcoal/80 hover:text-ja-purple transition-colors relative group"
-              >
-                {link.title}
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-ja-purple transition-all duration-300 group-hover:w-full rounded-full"></span>
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isUpcoming = link.href === '#upcoming';
+              return (
+                <a 
+                  key={link.title} 
+                  href={link.href}
+                  className={`text-sm font-medium transition-colors relative group flex items-center gap-1.5 ${
+                    isUpcoming ? 'text-ja-purple font-semibold' : 'text-ja-charcoal/80 hover:text-ja-purple'
+                  }`}
+                >
+                  {link.title}
+                  {isUpcoming && (
+                    <span className="flex h-2 w-2 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-ja-purple opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-ja-purple"></span>
+                    </span>
+                  )}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-ja-purple transition-all duration-300 group-hover:w-full rounded-full"></span>
+                </a>
+              );
+            })}
           </div>
 
           {/* CTA Button */}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Main Home Page -->
+  <url>
+    <loc>https://jaevents.ae/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://jaevents.ae/JA%20events.jpeg</image:loc>
+      <image:title>JA Events - Classroom to Career Workshop</image:title>
+    </image:image>
+  </url>
+
+  <!-- Upcoming Event Section Anchor -->
+  <url>
+    <loc>https://jaevents.ae/#upcoming</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- About JA Events -->
+  <url>
+    <loc>https://jaevents.ae/#about</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Experiences & Event Types -->
+  <url>
+    <loc>https://jaevents.ae/#experiences</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Video Highlights -->
+  <url>
+    <loc>https://jaevents.ae/#videos</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Event Gallery -->
+  <url>
+    <loc>https://jaevents.ae/#gallery</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Community Voices & Testimonials -->
+  <url>
+    <loc>https://jaevents.ae/#voices</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact Section -->
+  <url>
+    <loc>https://jaevents.ae/#contact</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Privacy Policy Page -->
+  <url>
+    <loc>https://jaevents.ae/#privacy</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+</urlset>

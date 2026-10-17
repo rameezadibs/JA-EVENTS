@@ -3,11 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Security Headers / CSP Meta -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline';
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com data:;
+      img-src 'self' data: https:;
+      media-src 'self' https:;
+      connect-src 'self' https:;
+      frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://pay.nomodapp.com;
+      base-uri 'self';
+      form-action 'self' https:;
+    " />
+
+    <!-- SEO & Metadata -->
+    <title>JA Events Dubai | Creating Experiences That Stay With You</title>
+    <meta name="description" content="JA Events organizes premium competitions, youth empowerment workshops, corporate summits, and creative exhibitions across Dubai and UAE. Discover our upcoming Classroom to Career workshop." />
+    <meta name="keywords" content="JA Events Dubai, events Dubai, youth workshops Dubai, Classroom to Career, career development UAE, kids competitions Dubai, art exhibition Dubai" />
+    <meta name="author" content="JA Events" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://jaevents.ae/" />
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jaevents.ae/" />
+    <meta property="og:title" content="JA Events | Classroom To Career Workshop & Experiences Dubai" />
+    <meta property="og:description" content="Join our upcoming 3-hour practical workshop for youth and young adults preparing for their first role with career specialists in Dubai." />
+    <meta property="og:image" content="https://jaevents.ae/JA%20events.jpeg" />
+    <meta property="og:site_name" content="JA Events" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JA Events | Classroom To Career Workshop & Experiences Dubai" />
+    <meta name="twitter:description" content="Join our upcoming 3-hour practical workshop for youth and young adults preparing for their first role with career specialists in Dubai." />
+    <meta name="twitter:image" content="https://jaevents.ae/JA%20events.jpeg" />
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JA Events | Creating Moments That Matter</title>
   </head>
   <body>
     <div id="root"></div>

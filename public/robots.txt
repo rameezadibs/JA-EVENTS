@@ -1,0 +1,10 @@
+# Robots.txt for JA Events Dubai
+User-agent: *
+Allow: /
+
+# Disallow scrapers from assets/scratch if any
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://jaevents.ae/sitemap.xml

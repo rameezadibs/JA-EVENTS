@@ -93,7 +93,7 @@ const row2 = [...testimonials.slice(6), ...testimonials.slice(6)];
 
 export default function Voices() {
   return (
-    <section id="voices" className="relative bg-[#21162F] text-white selection:bg-ja-purple/30 selection:text-white pb-12 lg:pb-16 overflow-hidden">
+    <section id="voices" className="relative bg-[#21162F] text-white selection:bg-ja-purple/30 selection:text-white pb-4 lg:pb-6 overflow-hidden">
       <style>{`
         @keyframes scrollLeft {
           0% { transform: translateX(0); }

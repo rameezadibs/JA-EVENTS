@@ -55,7 +55,7 @@ export default function ContactFooter() {
       </motion.div>
 
       {/* Decorative Continuous Line from previous section */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-32 bg-ja-purple/30 z-10 flex flex-col items-center">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-16 sm:h-20 bg-ja-purple/30 z-10 flex flex-col items-center">
         <motion.div 
           className="w-full bg-ja-purple origin-top h-full"
           initial={{ scaleY: 0 }}
@@ -71,11 +71,11 @@ export default function ContactFooter() {
         className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(118,83,173,0.12)_0%,transparent_70%)] pointer-events-none z-0"
       />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 pt-24 sm:pt-36 lg:pt-48 pb-20 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 relative z-10">
         
         {/* Headline */}
-        <div className="text-center flex flex-col items-center max-w-[1200px] mx-auto mb-16 sm:mb-24">
-          <div className="text-[10px] font-bold tracking-[0.3em] uppercase text-ja-purple mb-8 flex items-center gap-2">
+        <div className="text-center flex flex-col items-center max-w-[1200px] mx-auto mb-10 sm:mb-14">
+          <div className="text-[10px] font-bold tracking-[0.3em] uppercase text-ja-purple mb-5 flex items-center gap-2">
             LET'S CREATE TOGETHER
           </div>
 
@@ -88,8 +88,8 @@ export default function ContactFooter() {
         </div>
 
         {/* Playful Floating Options */}
-        <div className="flex flex-col items-center mb-16">
-          <div className="text-[10px] font-bold tracking-[0.25em] text-ja-charcoal/40 uppercase mb-12">WHAT ARE WE CREATING?</div>
+        <div className="flex flex-col items-center mb-10 sm:mb-12">
+          <div className="text-[10px] font-bold tracking-[0.25em] text-ja-charcoal/40 uppercase mb-8">WHAT ARE WE CREATING?</div>
           
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-6 max-w-[900px] text-center">
              {eventTypes.map((type) => {
