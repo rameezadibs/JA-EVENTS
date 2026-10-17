@@ -1,20 +1,27 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { navigateTo } from '../utils/navigation';
 
 const navLinks = [
-  { title: 'Home', href: '#home' },
-  { title: 'Upcoming', href: '#upcoming' },
-  { title: 'About', href: '#about' },
-  { title: 'Experiences', href: '#experiences' },
-  { title: 'Videos', href: '#videos' },
-  { title: 'Gallery', href: '#gallery' },
-  { title: 'Voices', href: '#voices' },
-  { title: 'Contact', href: '#contact' }
+  { title: 'Home', href: '/#home' },
+  { title: 'Upcoming', href: '/upcoming-events' },
+  { title: 'About', href: '/#about' },
+  { title: 'Experiences', href: '/#experiences' },
+  { title: 'Videos', href: '/#videos' },
+  { title: 'Gallery', href: '/#gallery' },
+  { title: 'Voices', href: '/#voices' },
+  { title: 'Contact', href: '/#contact' }
 ];
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleLinkClick = (e, href) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    navigateTo(href);
+  };
 
   return (
     <>
@@ -28,18 +35,23 @@ export default function Navbar() {
         <div className="flex items-center justify-between bg-white/80 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_rgba(118,83,173,0.08)] rounded-full px-6 py-3">
           
           {/* Logo */}
-          <a href="#home" className="flex items-center relative z-50">
+          <a 
+            href="/" 
+            onClick={(e) => handleLinkClick(e, '/')}
+            className="flex items-center relative z-50"
+          >
             <img src="/logo.png" alt="JA Events Logo" className="h-14 md:h-16 w-auto object-contain" />
           </a>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
-              const isUpcoming = link.href === '#upcoming';
+              const isUpcoming = link.href === '/upcoming-events';
               return (
                 <a 
                   key={link.title} 
                   href={link.href}
+                  onClick={(e) => handleLinkClick(e, link.href)}
                   className={`text-sm font-medium transition-colors relative group flex items-center gap-1.5 ${
                     isUpcoming ? 'text-ja-purple font-semibold' : 'text-ja-charcoal/80 hover:text-ja-purple'
                   }`}
@@ -60,7 +72,8 @@ export default function Navbar() {
           {/* CTA Button */}
           <div className="hidden md:flex relative z-50">
             <motion.a 
-              href="#contact"
+              href="/#contact"
+              onClick={(e) => handleLinkClick(e, '/#contact')}
               whileHover="hover"
               className="group relative flex items-center gap-2 bg-ja-purple text-white px-6 py-2.5 rounded-full font-medium text-sm overflow-hidden"
             >
@@ -87,6 +100,7 @@ export default function Navbar() {
           <button 
             className="md:hidden relative z-50 p-2 text-ja-deep"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle navigation menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -108,7 +122,7 @@ export default function Navbar() {
                 <motion.a
                   key={link.title}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => handleLinkClick(e, link.href)}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.08 + (i * 0.06), duration: 0.4 }}
@@ -122,8 +136,8 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.4 }}
-                href="#contact"
-                onClick={() => setIsMobileMenuOpen(false)}
+                href="/#contact"
+                onClick={(e) => handleLinkClick(e, '/#contact')}
                 className="mt-6 bg-ja-purple text-white px-8 py-3.5 rounded-full font-medium text-base sm:text-lg flex items-center justify-center gap-2 mx-auto w-full max-w-xs shadow-lg"
               >
                 Plan an Event <ArrowUpRight className="w-5 h-5" />

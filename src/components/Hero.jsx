@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { navigateTo } from '../utils/navigation';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -80,10 +81,14 @@ export default function Hero() {
         {/* Action Buttons */}
         <motion.div variants={textReveal} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
           <motion.a 
-            href="#upcoming"
+            href="/upcoming-events"
+            onClick={(e) => {
+              e.preventDefault();
+              navigateTo('/upcoming-events');
+            }}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="group flex items-center gap-3 bg-ja-purple hover:bg-ja-purple/90 text-white px-8 py-4 rounded-full font-extrabold text-sm transition-all shadow-[0_8px_28px_rgba(118,83,173,0.45)]"
+            className="group flex items-center gap-3 bg-ja-purple hover:bg-ja-purple/90 text-white px-8 py-4 rounded-full font-extrabold text-sm transition-all shadow-[0_8px_28px_rgba(118,83,173,0.45)] cursor-pointer"
           >
             <span>Exclusive: Classroom to Career</span>
             <span className="w-2 h-2 rounded-full bg-white animate-ping" />
@@ -92,9 +97,13 @@ export default function Hero() {
           
           <motion.a 
             href="#experiences"
+            onClick={(e) => {
+              e.preventDefault();
+              navigateTo('#experiences');
+            }}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="group flex items-center gap-3 bg-white/10 hover:bg-white/15 text-white border border-white/20 px-8 py-4 rounded-full font-bold text-sm transition-shadow shadow-[0_8px_24px_rgba(118,83,173,0.35)]"
+            className="group flex items-center gap-3 bg-white/10 hover:bg-white/15 text-white border border-white/20 px-8 py-4 rounded-full font-bold text-sm transition-shadow shadow-[0_8px_24px_rgba(118,83,173,0.35)] cursor-pointer"
           >
             Explore Experiences
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

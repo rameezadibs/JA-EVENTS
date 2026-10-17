@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import { navigateTo } from '../utils/navigation';
 
 const eventTypes = [
   "A Competition",
@@ -156,13 +157,13 @@ export default function ContactFooter() {
                <div>
                   <div className="text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase mb-6">EXPLORE</div>
                   <ul className="space-y-4">
-                     <li><a href="#home" className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">HOME</a></li>
-                     <li><a href="#upcoming" className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">UPCOMING</a></li>
-                     <li><a href="#about" className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">ABOUT</a></li>
-                     <li><a href="#experiences" className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">EXPERIENCES</a></li>
-                     <li><a href="#videos" className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">VIDEOS</a></li>
-                     <li><a href="#gallery" className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">GALLERY</a></li>
-                     <li><a href="#voices" className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">VOICES</a></li>
+                     <li><a href="/#home" onClick={(e) => { e.preventDefault(); navigateTo('/#home'); }} className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">HOME</a></li>
+                     <li><a href="/upcoming-events" onClick={(e) => { e.preventDefault(); navigateTo('/upcoming-events'); }} className="text-sm font-semibold tracking-wider text-ja-purple hover:text-white transition-colors flex items-center gap-1.5">UPCOMING <span className="w-1.5 h-1.5 rounded-full bg-ja-purple animate-ping inline-block"></span></a></li>
+                     <li><a href="/#about" onClick={(e) => { e.preventDefault(); navigateTo('/#about'); }} className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">ABOUT</a></li>
+                     <li><a href="/#experiences" onClick={(e) => { e.preventDefault(); navigateTo('/#experiences'); }} className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">EXPERIENCES</a></li>
+                     <li><a href="/#videos" onClick={(e) => { e.preventDefault(); navigateTo('/#videos'); }} className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">VIDEOS</a></li>
+                     <li><a href="/#gallery" onClick={(e) => { e.preventDefault(); navigateTo('/#gallery'); }} className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">GALLERY</a></li>
+                     <li><a href="/#voices" onClick={(e) => { e.preventDefault(); navigateTo('/#voices'); }} className="text-sm font-semibold tracking-wider text-white/80 hover:text-white transition-colors">VOICES</a></li>
                   </ul>
                </div>
 
@@ -229,7 +230,14 @@ export default function ContactFooter() {
                <div className="flex items-center gap-4">
                   <span>© {new Date().getFullYear()} JA EVENTS</span>
                   <span>•</span>
-                  <a href="#privacy" className="hover:text-white transition-colors">
+                  <a 
+                     href="/privacy" 
+                     onClick={(e) => {
+                        e.preventDefault();
+                        navigateTo('/privacy');
+                     }}
+                     className="hover:text-white transition-colors"
+                  >
                      PRIVACY POLICY
                   </a>
                </div>
