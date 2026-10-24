@@ -83,38 +83,6 @@ export default function UpcomingEventsPage() {
         </div>
       </header>
 
-      {/* Dedicated Page Hero Banner */}
-      <section className="pt-10 pb-6 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-wrap items-center gap-2 text-xs text-white/50 mb-4 font-medium">
-          <a 
-            href="/" 
-            onClick={(e) => { e.preventDefault(); navigateTo('/'); }}
-            className="hover:text-ja-purple transition-colors"
-          >
-            Home
-          </a>
-          <span>/</span>
-          <span className="text-ja-purple">Upcoming Events</span>
-          <span>/</span>
-          <span className="text-white/80">Classroom To Career</span>
-        </div>
-
-        <div className="bg-gradient-to-r from-white/5 via-white/10 to-white/5 border border-white/10 rounded-3xl p-6 sm:p-10 backdrop-blur-md relative overflow-hidden">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-ja-purple/30 border border-ja-purple/50 text-white text-xs font-bold tracking-widest uppercase mb-4">
-              <span>JA Events Exclusive Workshop • Dubai</span>
-            </div>
-            
-            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white font-semibold tracking-tight leading-tight mb-4">
-              Upcoming Events
-            </h1>
-            
-            <p className="text-white/75 text-base sm:text-lg leading-relaxed max-w-2xl">
-              Discover curated workshops, leadership summits, and youth empowerment experiences hosted by JA Events across Dubai. Reserve your seat for our premier upcoming edition below.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* The Core Exclusive Upcoming Event Showcase Section */}
       <UpcomingHighlight />
