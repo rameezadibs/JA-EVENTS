@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { 
   ArrowLeft, 
   HelpCircle,
-  ExternalLink,
   Phone
 } from 'lucide-react';
 import UpcomingHighlight from './UpcomingHighlight';
@@ -11,12 +10,10 @@ import WhatsAppButton from './WhatsAppButton';
 import { navigateTo } from '../utils/navigation';
 
 export default function UpcomingEventsPage() {
-  const payUrl = "https://pay.nomodapp.com/en/l/64930238ae254a08";
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
     const originalTitle = document.title;
-    document.title = "Upcoming Events | Classroom To Career Workshop — JA Events Dubai";
+    document.title = "Upcoming Events | Chess Tournament — JA Events Dubai";
     return () => {
       document.title = originalTitle;
     };
@@ -24,20 +21,20 @@ export default function UpcomingEventsPage() {
 
   const faqs = [
     {
-      q: "Who is this workshop designed for?",
-      a: "Teens, high schoolers, university students, fresh graduates, and young adults preparing for their first job, internship, or interview."
+      q: "Who is this tournament designed for?",
+      a: "JA Events, in collaboration with Signature Chess Club, invites chess enthusiasts to come together for an exciting tournament built around strategy, focus and competition."
     },
     {
-      q: "Can parents attend with their child?",
-      a: "Yes! Every registered participant is warmly invited to be accompanied by one parent at no extra charge."
+      q: "When and where will the Chess Tournament take place?",
+      a: "The tournament will take place on 17 December 2026, from 10:00 AM – 1:00 PM at Al Mankhool Library, Dubai."
     },
     {
-      q: "Where is the workshop held and is parking available?",
-      a: "It takes place at the prestigious Al Twar Library in Dubai, with convenient parking and metro access nearby."
+      q: "How can I register for the tournament?",
+      a: "Registration details are opening soon! For inquiries and updates, please contact Angel Joe at +971 52 839 4207."
     },
     {
-      q: "How do I secure and confirm my seat?",
-      a: "Seats are limited. Complete the official Google Form or complete payment of AED 99 online via Nomod. Our team will verify and send instant confirmation."
+      q: "Are sponsorship opportunities available?",
+      a: "Yes! Sponsors are warmly welcomed. Please reach out to Angel Joe at +971 52 839 4207 to discuss sponsorship and partnership opportunities."
     }
   ];
 
@@ -70,19 +67,15 @@ export default function UpcomingEventsPage() {
               <span>Back to Home</span>
             </button>
 
-            <a
-              href={payUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-ja-purple hover:bg-ja-purple/90 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:scale-[1.02]"
+            <button
+              disabled
+              className="hidden sm:inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-ja-purple/80 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md cursor-not-allowed opacity-90 select-none"
             >
-              <span>Book Seat (AED 99)</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+              <span>More Details Coming Soon</span>
+            </button>
           </div>
         </div>
       </header>
-
 
       {/* The Core Exclusive Upcoming Event Showcase Section */}
       <UpcomingHighlight />
@@ -97,7 +90,7 @@ export default function UpcomingEventsPage() {
             Frequently Asked Questions
           </h2>
           <p className="text-sm text-white/60 mt-2">
-            Everything you need to know about attending Classroom to Career.
+            Everything you need to know about the upcoming Chess Tournament.
           </p>
         </div>
 
@@ -123,10 +116,10 @@ export default function UpcomingEventsPage() {
         {/* WhatsApp Help Prompt */}
         <div className="mt-10 max-w-xl mx-auto text-center bg-ja-purple/20 border border-ja-purple/30 rounded-2xl p-5">
           <p className="text-sm text-white/90 mb-3">
-            Still have questions or need group registrations for schools / institutions?
+            Have questions about the Chess Tournament or interested in sponsorship?
           </p>
           <a
-            href="https://wa.me/971528394207?text=Hi%20JA%20Events%2C%20I%20have%20a%20question%20about%20Classroom%20to%20Career"
+            href="https://wa.me/971528394207?text=Hi%20JA%20Events%2C%20I%20have%20a%20question%20about%20the%20Chess%20Tournament"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white bg-ja-purple px-5 py-2.5 rounded-full hover:bg-ja-purple/90 transition-all shadow-md"
