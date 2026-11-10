@@ -5,11 +5,13 @@ import {
   Trophy,
   Phone,
   Share2,
-  CheckCircle2
+  CheckCircle2,
+  ExternalLink
 } from 'lucide-react';
 
 export default function UpcomingHighlight() {
   const posterPath = "/chess-tournament-december-2026.png";
+  const registrationUrl = "https://forms.gle/CNaTnR8VFo15NvQZ8";
 
   return (
     <section id="upcoming" className="pt-16 pb-20 md:pt-24 md:pb-28 bg-[#21162F] text-white relative overflow-hidden selection:bg-ja-purple/30 selection:text-white border-y border-white/10">
@@ -23,7 +25,7 @@ export default function UpcomingHighlight() {
       <div className="w-full bg-ja-purple/20 border-b border-white/10 py-2.5 px-4 text-center">
         <div className="flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-semibold tracking-wider text-white">
           <span>JA EVENTS IN COLLABORATION WITH SIGNATURE CHESS CLUB • CHESS TOURNAMENT</span>
-          <span className="hidden sm:inline px-2 py-0.5 rounded-full bg-ja-purple/40 text-white text-[10px] font-bold uppercase border border-ja-purple/50">Coming Soon</span>
+          <span className="hidden sm:inline px-2 py-0.5 rounded-full bg-ja-purple/40 text-white text-[10px] font-bold uppercase border border-ja-purple/50">Registration Open</span>
         </div>
       </div>
 
@@ -149,7 +151,7 @@ export default function UpcomingHighlight() {
               <div className="flex flex-col justify-center py-1 border-t sm:border-t-0 sm:border-l border-white/10">
                 <span className="text-xs text-white/50 block">Status</span>
                 <span className="text-xs md:text-sm font-semibold text-white flex items-center justify-center gap-1.5 mt-0.5">
-                  <Clock className="w-4 h-4 text-ja-purple" /> More Details Coming Soon!
+                  <CheckCircle2 className="w-4 h-4 text-ja-purple" /> Registration Open!
                 </span>
               </div>
             </div>
@@ -172,17 +174,19 @@ export default function UpcomingHighlight() {
                 <span className="text-xs font-bold tracking-widest uppercase text-white flex items-center gap-1.5">
                   Registration & Inquiries
                 </span>
-                <span className="text-[11px] text-white/60">Opening Soon</span>
+                <span className="text-[11px] text-ja-purple font-semibold">Now Open</span>
               </div>
 
-              {/* Disabled CTA matching existing button styling */}
-              <button
-                type="button"
-                disabled
-                className="w-full p-4 rounded-xl bg-ja-purple/80 text-white font-bold text-sm border border-white/20 shadow-lg cursor-not-allowed opacity-90 flex items-center justify-center gap-2 select-none"
+              {/* Active Register Now CTA Button */}
+              <a
+                href={registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full p-4 rounded-xl bg-ja-purple hover:bg-ja-purple/90 text-white font-bold text-sm border border-white/20 shadow-lg flex items-center justify-center gap-2 transition-all hover:scale-[1.01]"
               >
-                <span>More Details Coming Soon</span>
-              </button>
+                <span>Register Now</span>
+                <ExternalLink className="w-4 h-4 text-white" />
+              </a>
 
               {/* WhatsApp & Phone contact fallback */}
               <div className="flex items-center justify-between text-xs text-white/70 pt-1">
@@ -232,14 +236,16 @@ export default function UpcomingHighlight() {
                 JA Events, in collaboration with Signature Chess Club, invites chess enthusiasts to come together for an exciting tournament built around strategy, focus and competition.
               </p>
               
-              {/* Primary Disabled CTA Button */}
-              <button
-                type="button"
-                disabled
-                className="w-full py-3.5 px-5 rounded-xl bg-ja-purple/80 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(118,83,173,0.4)] cursor-not-allowed opacity-90 mb-3 select-none"
+              {/* Primary Register Now CTA Button */}
+              <a
+                href={registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3.5 px-5 rounded-xl bg-ja-purple hover:bg-ja-purple/90 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(118,83,173,0.4)] transition-all hover:scale-[1.02] mb-3"
               >
-                <span>More Details Coming Soon</span>
-              </button>
+                <span>Register Now</span>
+                <ExternalLink className="w-4 h-4 text-white" />
+              </a>
 
               <div className="text-xs text-white/70 flex items-center justify-center gap-1.5 mt-1">
                 <Phone className="w-3.5 h-3.5 text-ja-purple" />

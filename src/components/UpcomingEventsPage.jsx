@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { 
   ArrowLeft, 
   HelpCircle,
+  ExternalLink,
   Phone
 } from 'lucide-react';
 import UpcomingHighlight from './UpcomingHighlight';
@@ -30,7 +31,7 @@ export default function UpcomingEventsPage() {
     },
     {
       q: "How can I register for the tournament?",
-      a: "Registration details are opening soon! For inquiries and updates, please contact Angel Joe at +971 52 839 4207."
+      a: "You can register directly by filling out the official online registration form at forms.gle/CNaTnR8VFo15NvQZ8. For any questions or assistance, contact Angel Joe at +971 52 839 4207."
     },
     {
       q: "Are sponsorship opportunities available?",
@@ -67,12 +68,15 @@ export default function UpcomingEventsPage() {
               <span>Back to Home</span>
             </button>
 
-            <button
-              disabled
-              className="hidden sm:inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-ja-purple/80 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md cursor-not-allowed opacity-90 select-none"
+            <a
+              href="https://forms.gle/CNaTnR8VFo15NvQZ8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-ja-purple hover:bg-ja-purple/90 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:scale-[1.02]"
             >
-              <span>More Details Coming Soon</span>
-            </button>
+              <span>Register Now</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
       </header>
